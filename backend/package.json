@@ -1,0 +1,11 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "A COMP 4537 assignment by Karel Chanivecky",
+  "main": "question_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Karel Chanivecky",
+  "license": "ISC"
+}
