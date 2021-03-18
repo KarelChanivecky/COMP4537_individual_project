@@ -1,8 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {addQuestion, getQuestions, updateQuestion} from './dataSource.mjs';
+import {PORT} from "../sharedSymbols/server_info";
 
-const port = 3000;
 
 const app = express();
 
@@ -50,4 +50,4 @@ app.put('/questions', (req, res, next) => {
 
 console.log("listening .....");
 
-app.listen(port);
+app.listen(PORT);

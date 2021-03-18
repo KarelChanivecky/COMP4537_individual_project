@@ -1,7 +1,6 @@
 import {Question} from '../../sharedSymbols/models.mjs'
+import {BASE_URL, PORT} from "../../sharedSymbols/server_info";
 
-const SERVER_URL = "http://localhost";
-const PORT = 3000;
 
 /**
  * make http request
@@ -13,7 +12,7 @@ const PORT = 3000;
 function request(path, method, reqBody) {
     return new Promise((resolve, reject) => {
         const req = new XMLHttpRequest();
-        req.open(method, `${SERVER_URL}:${PORT}${path}`, true);
+        req.open(method, `${BASE_URL}:${PORT}${path}`, true);
         req.setRequestHeader("Content-Type", "application/json");
         req.send(reqBody);
         req.onreadystatechange = () => {
