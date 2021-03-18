@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+    <link rel="stylesheet" href="./style/admin.css" type="text/css">
+    <link rel="stylesheet" href="./style/common.css" type="text/css">
+    <link rel="stylesheet" href="./style/fontawesome-all.min.css" type="">
+</head>
+<body>
+<button><a href="index.html">back</a></button>
+<section class="row">
+    <section class="with_border col">
+        <h2>Add question</h2>
+        <section>
+            <input type="text" id="addQdescription"/>
+            <div class="row">
+                <input type="radio" name="addRadio" value="0">
+                <input type="text" id="addin0"/>
+            </div>
+            <div class="row">
+                <input type="radio" name="addRadio" value="1">
+                <input type="text" id="addin1"/>
+            </div>
+            <div class="row">
+                <input type="radio" name="addRadio" value="2">
+                <input type="text" id="addin2"/>
+            </div>
+            <div class="row">
+                <input type="radio" name="addRadio" value="3">
+                <input type="text" id="addin3"/>
+            </div>
+            <section>
+                <button id="add_btn">+</button>
+            </section>
+        </section>
+    </section>
+
+    <section class="with_border col">
+        <h2>Edit question</h2>
+        <section>
+            <input type="text" id="edQdescription"/>
+            <div class="row">
+                <input type="radio" name="edRadio" value="0">
+                <input type="text" id="edin0"/>
+            </div>
+            <div class="row">
+                <input type="radio" name="edRadio" value="1">
+                <input type="text" id="edin1"/>
+            </div>
+            <div class="row">
+                <input type="radio" name="edRadio" value="2">
+                <input type="text" id="edin2"/>
+            </div>
+            <div class="row">
+                <input type="radio" name="edRadio" value="3">
+                <input type="text" id="edin3"/>
+            </div>
+            <section>
+                <button id="edit_btn">✓</button>
+            </section>
+        </section>
+    </section>
+</section>
+<section id="question_root"></section>
+<script type="module" src="./js/admin.js"></script>
+</body>
+</html>
