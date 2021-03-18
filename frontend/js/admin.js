@@ -25,6 +25,9 @@ function main() {
     const load = getLoad(qRoot, editBox);
     const addBox = new AddBox(load);
     load();
+    document.getElementById("back_btn").onclick = () => {
+        window.location = 'index.html';
+    }
 }
 
 window.onload = main;

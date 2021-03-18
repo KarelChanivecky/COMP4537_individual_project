@@ -36,7 +36,7 @@ function makeAdminQuestionCard(question, editBoxRef) {
  */
 function makeChoice(choice, correct) {
     const div = renderDiv();
-    div.innerText = `${correct?"X: " : ""}${choice.description}`;
+    div.innerText = `${correct?"->: " : ""}${choice.description}`;
     return div;
 }
 

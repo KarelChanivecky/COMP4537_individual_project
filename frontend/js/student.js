@@ -36,6 +36,9 @@ async function main() {
         });
         window.alert(`Your score is ${correct}/${studentQuestionCards.length}`);
     };
+    document.getElementById("back_btn").onclick = () => {
+        window.location = 'index.html';
+    }
 }
 
 
