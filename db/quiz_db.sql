@@ -25,6 +25,7 @@ create table choices(
         on delete cascade
 );
 
+delimiter $$
 
 create procedure create_question(in question_description varchar(40), in p_correctAnswerIndex int)
 begin
@@ -35,14 +36,14 @@ end;
 create procedure add_choice(in choice_description varchar(40), in p_questionId int)
 begin
     insert into choices(description, questionId) values (choice_description, p_questionId);
-end;
+end; $$
 
 create procedure get_questions()
 begin
     select q.questionId, q.description as questionDescription, q.correctAnswerIndex, c.choiceId, c.description as choiceDescription from questions q
         join choices c on q.questionId = c.questionId
         order by (q.questionId);
-end;
+end; $$
 
 
 create procedure update_question(in p_questionId int, in p_description varchar(100), in p_correctAnswerIndex int)
@@ -52,6 +53,8 @@ begin
             q.correctAnswerIndex = p_correctAnswerIndex
         where q.questionId = p_questionId;
     delete from choices c where c.questionId = p_questionId;
-end;
+end; $$
+
+delimiter ;
 
 
