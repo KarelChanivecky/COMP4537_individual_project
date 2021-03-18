@@ -1,6 +1,8 @@
 import {Question} from '../../sharedSymbols/models.mjs'
-import {BASE_URL, PORT} from "../../sharedSymbols/server_info.mjs";
 
+const BASE_URL = "https://karelc.com/COMP4537_individual_project/api";
+// const BASE_URL = "localhost";
+// const PORT = 443;
 
 /**
  * make http request
@@ -12,7 +14,7 @@ import {BASE_URL, PORT} from "../../sharedSymbols/server_info.mjs";
 function request(path, method, reqBody) {
     return new Promise((resolve, reject) => {
         const req = new XMLHttpRequest();
-        req.open(method, `${BASE_URL}:${PORT}${path}`, true);
+        req.open(method, `${BASE_URL}${path}`, true);
         req.setRequestHeader("Content-Type", "application/json");
         req.send(reqBody);
         req.onreadystatechange = () => {

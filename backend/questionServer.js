@@ -1,8 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {addQuestion, getQuestions, updateQuestion} from './dataSource.mjs';
-import {PORT} from "../sharedSymbols/server_info.mjs";
-
+const PORT = 10000;
 
 const app = express();
 
