@@ -1,5 +1,5 @@
 import {Question} from '../../sharedSymbols/models.mjs'
-import {BASE_URL, PORT} from "../../sharedSymbols/server_info";
+import {BASE_URL, PORT} from "../../sharedSymbols/server_info.mjs";
 
 
 /**
