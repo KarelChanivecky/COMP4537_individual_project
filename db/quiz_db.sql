@@ -9,14 +9,14 @@ flush privileges;
 
 create table questions(
     questionId int auto_increment not null ,
-    description varchar(100) not null,
+    description varchar(1024) not null,
     correctAnswerIndex int not null,
     primary key (questionId)
 );
 
 create table choices(
     choiceId int auto_increment,
-    description varchar(100) not null,
+    description varchar(1024) not null,
     questionId int not null,
     primary key(choiceId),
     foreign key (questionId)
@@ -27,13 +27,13 @@ create table choices(
 
 delimiter $$
 
-create procedure create_question(in question_description varchar(40), in p_correctAnswerIndex int)
+create procedure create_question(in question_description varchar(1024), in p_correctAnswerIndex int)
 begin
     insert into questions(description, correctAnswerIndex) values (question_description, p_correctAnswerIndex);
     select last_insert_id() as 'questionId';
 end;
 
-create procedure add_choice(in choice_description varchar(40), in p_questionId int)
+create procedure add_choice(in choice_description varchar(1024), in p_questionId int)
 begin
     insert into choices(description, questionId) values (choice_description, p_questionId);
 end; $$
@@ -46,7 +46,7 @@ begin
 end; $$
 
 
-create procedure update_question(in p_questionId int, in p_description varchar(100), in p_correctAnswerIndex int)
+create procedure update_question(in p_questionId int, in p_description varchar(1024), in p_correctAnswerIndex int)
 begin
     update questions q
         set q.description = p_description,
