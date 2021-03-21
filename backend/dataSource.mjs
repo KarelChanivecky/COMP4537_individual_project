@@ -21,7 +21,7 @@ db.on('err', err => {
 });
 
 function getConnection() {
-    mysql.createConnection({
+    return mysql.createConnection({
         host: 'localhost',
         user: 'comp4537_individual_assignment',
         password: 'bad_password',
