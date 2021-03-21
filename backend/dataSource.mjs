@@ -1,12 +1,7 @@
 import mysql from 'mysql'
 import {Choice, Question} from '../sharedSymbols/models.mjs'
 
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'comp4537_individual_assignment',
-    password: 'bad_password',
-    database: 'quiz_db'
-});
+let db = getConnection();
 
 const ProcedureNames = {
     CREATE_QUESTION: 'create_question',
@@ -17,6 +12,22 @@ const ProcedureNames = {
     GET_RIGHT_ANSWERS: 'get_right_answers'
 }
 
+db.on('err', err => {
+    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+        db = getConnection()
+    } else {
+        throw err;
+    }
+});
+
+function getConnection() {
+    mysql.createConnection({
+        host: 'localhost',
+        user: 'comp4537_individual_assignment',
+        password: 'bad_password',
+        database: 'quiz_db'
+    });
+}
 
 /**
  * Create an escaped sql query.
