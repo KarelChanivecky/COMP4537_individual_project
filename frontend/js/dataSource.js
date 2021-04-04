@@ -27,7 +27,6 @@ function request(path, method, reqBody) {
             }
         }
     });
-
 }
 
 /**

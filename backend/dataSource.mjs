@@ -1,7 +1,7 @@
 import mysql from 'mysql'
 import {Choice, Question} from '../sharedSymbols/models.mjs'
 
-let db = getConnection();
+
 
 const ProcedureNames = {
     CREATE_QUESTION: 'create_question',
@@ -12,14 +12,18 @@ const ProcedureNames = {
     GET_RIGHT_ANSWERS: 'get_right_answers'
 }
 
-db.on('err', err => {
-    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-        db = getConnection()
-    } else {
-        throw err;
-    }
-});
+// db.on('err', err => {
+//     if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+//         db = getConnection()
+//     } else {
+//         throw err;
+//     }
+// });
 
+/**
+ *
+ * @return {Connection}
+ */
 function getConnection() {
     return mysql.createConnection({
         host: 'localhost',
@@ -50,8 +54,10 @@ function createCallQuery(procName, argCount) {
  */
 function callProcedure(procName, args = []) {
     return new Promise((resolve, reject) => {
+        let db = getConnection();
         const callQuery = createCallQuery(procName, args.length);
         db.query(callQuery, args, (err, results) => {
+            db.end();
             if (err) {
                 reject(err);
             }
